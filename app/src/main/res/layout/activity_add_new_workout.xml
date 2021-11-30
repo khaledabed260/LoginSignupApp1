@@ -32,7 +32,7 @@
         tools:layout_editor_absoluteY="63dp" />
 
     <ImageView
-        android:id="@+id/etIVPhotoAddExercise"
+        android:id="@+id/ivPhotoAddExercise"
         android:layout_width="200dp"
         android:layout_height="200dp"
         tools:layout_editor_absoluteX="105dp"
@@ -60,5 +60,12 @@
         android:textColor="@color/darkgray"
         tools:layout_editor_absoluteX="158dp"
         tools:layout_editor_absoluteY="562dp" />
+
+    <Spinner
+        android:id="@+id/spRestCatAddExercise"
+        android:layout_width="409dp"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="277dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

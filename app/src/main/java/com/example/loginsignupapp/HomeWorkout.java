@@ -18,6 +18,9 @@ public class HomeWorkout {
         this.picture = picture;
     }
 
+    public HomeWorkout(String exercise, String sets, String bodyPart, HWCat valueOf, String photo) {
+    }
+
     @Override
     public String toString() {
         return "HomeWorkout{" +
