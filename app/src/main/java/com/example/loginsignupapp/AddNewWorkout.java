@@ -19,8 +19,6 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.material.tabs.TabLayout;
-import com.google.firebase.database.core.Tag;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
@@ -30,7 +28,7 @@ import java.io.IOException;
 import java.util.UUID;
 
 public class AddNewWorkout extends AppCompatActivity {
-    private EditText etExercise, etSets, etBodyPart;
+    private EditText etName, etSets, etBodyPart, etDifficulty;
     private Spinner spCat;
     private View ivPhoto;
     private FirebaseServices fbs;
@@ -48,7 +46,8 @@ public class AddNewWorkout extends AppCompatActivity {
 
     }
     private void connectComponent(){
-        etExercise=findViewById(R.id.etExercise);
+        etName=findViewById(R.id.etName);
+        etDifficulty=findViewById(R.id.etDifficulty);
         etBodyPart=findViewById(R.id.etBodyPart);
         etSets = findViewById(R.id.etSets);
         spCat = findViewById(R.id.spRestCatAddExercise);
@@ -61,35 +60,37 @@ public class AddNewWorkout extends AppCompatActivity {
 
     public void add(View view) {
         // check if any field is empty
-        String Exercise, BodyPart, Sets, category, photo;
-        Exercise = etExercise.getText().toString();
-        BodyPart = etBodyPart.getText().toString();
-        Sets =etSets.getText().toString();
+        String name, bodyPart, sets,  picture, difficulty;
+        String category;
+        difficulty = etDifficulty.getText().toString();
+        name = etName.getText().toString();
+        bodyPart = etBodyPart.getText().toString();
+        sets =etSets.getText().toString();
         category = spCat.getSelectedItem().toString();
         if (ivPhoto.getDrawableState() == null)
-            photo = "no_image";
-        else photo = storageReference.getDownloadUrl().toString();
+            picture = "no_image";
+        else picture = storageReference.getDownloadUrl().toString();
 
-        if (Exercise.trim().isEmpty() || BodyPart.trim().isEmpty() || Sets.trim().isEmpty() ||
-                category.trim().isEmpty() || photo.trim().isEmpty())
+        if (name.trim().isEmpty() || bodyPart.trim().isEmpty() || sets.trim().isEmpty() ||
+                category.trim().isEmpty() || picture.trim().isEmpty())
         {
             Toast.makeText(this,"some fields are empty!", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        HomeWorkout workout = new HomeWorkout(Exercise, Sets, BodyPart, HWCat.valueOf(category), photo);
+        HomeWorkout workout = new HomeWorkout(name, sets, bodyPart, difficulty, picture, HWCategory.valueOf(category));
         fbs.getFire().collection("workouts")
                 .add(workout)
                 .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                     @Override
                     public void onSuccess(DocumentReference documentReference) {
-                        Log.d(TAG, "DocumentSnapshot added with ID: " + documentReference.getId());
+                        //Log.d(TAG, "DocumentSnapshot added with ID: " + documentReference.getId());
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        Log.w(TAG, "Error adding document", e);
+                        //Log.w(TAG, "Error adding document", e);
                     }
                 });
     }

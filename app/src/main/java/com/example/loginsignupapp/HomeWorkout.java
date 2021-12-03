@@ -2,56 +2,58 @@ package com.example.loginsignupapp;
 
 enum HWCategory
 {
-    Abdominal, Chest, Arm, Leg, Butt, Back
+    All, Abdominal, Chest, Arm, Leg, Butt, Back
 }
 
 public class HomeWorkout {
-    private int sets;
-    private int duration;
-    private int difficulty;
+    private String sets;
+    private String name;
+    private String bodyPart;
+    private String difficulty;
     private String picture;
+    private HWCategory category;
 
-    public HomeWorkout(int sets, int duration, int difficulty, String picture) {
+    public HomeWorkout() {
+    }
+
+    public HomeWorkout(String sets, String name, String bodyPart, String difficulty, String picture, HWCategory category) {
         this.sets = sets;
-        this.duration = duration;
+        this.name = name;
+        this.bodyPart = bodyPart;
         this.difficulty = difficulty;
         this.picture = picture;
+        this.category = category;
     }
 
-    public HomeWorkout(String exercise, String sets, String bodyPart, HWCat valueOf, String photo) {
-    }
-
-    @Override
-    public String toString() {
-        return "HomeWorkout{" +
-                "sets=" + sets +
-                ", duration=" + duration +
-                ", difficulty=" + difficulty +
-                ", picture='" + picture + '\'' +
-                '}';
-    }
-
-    public int getSets() {
+    public String getSets() {
         return sets;
     }
 
-    public void setSets(int sets) {
+    public void setSets(String sets) {
         this.sets = sets;
     }
 
-    public int getDuration() {
-        return duration;
+    public String getName() {
+        return name;
     }
 
-    public void setDuration(int duration) {
-        this.duration = duration;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public int getDifficulty() {
+    public String getBodyPart() {
+        return bodyPart;
+    }
+
+    public void setBodyPart(String bodyPart) {
+        this.bodyPart = bodyPart;
+    }
+
+    public String getDifficulty() {
         return difficulty;
     }
 
-    public void setDifficulty(int difficulty) {
+    public void setDifficulty(String difficulty) {
         this.difficulty = difficulty;
     }
 
@@ -61,5 +63,25 @@ public class HomeWorkout {
 
     public void setPicture(String picture) {
         this.picture = picture;
+    }
+
+    public HWCategory getCategory() {
+        return category;
+    }
+
+    public void setCategory(HWCategory category) {
+        this.category = category;
+    }
+
+    @Override
+    public String toString() {
+        return "HomeWorkout{" +
+                "sets='" + sets + '\'' +
+                ", name='" + name + '\'' +
+                ", bodyPart='" + bodyPart + '\'' +
+                ", difficulty='" + difficulty + '\'' +
+                ", picture='" + picture + '\'' +
+                ", category=" + category +
+                '}';
     }
 }

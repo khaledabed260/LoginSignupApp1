@@ -11,11 +11,9 @@ import com.google.firebase.storage.FirebaseStorage;
         private FirebaseFirestore fire;
         private FirebaseStorage storage;
 
-        public FirebaseAuth getAuth() {
-            return auth;
-        }
+        public FirebaseAuth getAuth() { return auth; }
 
-        public FirebaseFirestore getFirestore() {
+        public FirebaseFirestore getFire() {
             return fire;
         }
 
@@ -38,9 +36,7 @@ import com.google.firebase.storage.FirebaseStorage;
             return instance;
         }
 
-        public FirebaseFirestore getFire() {
-            return null;
-        }
+
     }
 
 
