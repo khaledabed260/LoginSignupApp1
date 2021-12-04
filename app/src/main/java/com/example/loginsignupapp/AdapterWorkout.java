@@ -27,7 +27,7 @@ public class AdapterWorkout extends RecyclerView.Adapter<AdapterWorkout.ViewHold
     @Override
     public AdapterWorkout.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = mInflater.inflate(R.layout.row, parent, false);
-        return new AdapterWorkout().ViewHolder(view);
+        return new AdapterWorkout.ViewHolder(view);
     }
 
     // binds the data to the TextView in each row
@@ -52,8 +52,8 @@ public class AdapterWorkout extends RecyclerView.Adapter<AdapterWorkout.ViewHold
 
         ViewHolder(View itemView) {
             super(itemView);
-            tvName = itemView.findViewById(R.id.tvNameRestRow);
-            ivPhoto = itemView.findViewById(R.id.ivPhotoRestRow);
+            tvName = itemView.findViewById(R.id.tvNameRow);
+            ivPhoto = itemView.findViewById(R.id.ivPhotoRow);
             itemView.setOnClickListener(this);
         }
 
