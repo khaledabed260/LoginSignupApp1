@@ -26,7 +26,7 @@ public class AdapterWorkout extends RecyclerView.Adapter<AdapterWorkout.ViewHold
     // inflates the row layout from xml when needed
     @Override
     public AdapterWorkout.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = mInflater.inflate(R.layout.rowWorkout, parent, false);
+        View view = mInflater.inflate(R.layout.row_workout, parent, false);
         return new AdapterWorkout.ViewHolder(view);
     }
 
@@ -52,8 +52,8 @@ public class AdapterWorkout extends RecyclerView.Adapter<AdapterWorkout.ViewHold
 
         ViewHolder(View itemView) {
             super(itemView);
-            tvName = itemView.findViewById(R.id.tvNameRow);
-            ivPhoto = itemView.findViewById(R.id.ivPhotoRow);
+            tvName = itemView.findViewById(R.id.tvNameWorkoutRow);
+            ivPhoto = itemView.findViewById(R.id.ivPhotoWorkoutRow);
             itemView.setOnClickListener(this);
         }
 
