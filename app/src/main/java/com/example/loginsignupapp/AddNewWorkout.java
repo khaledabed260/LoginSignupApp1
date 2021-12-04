@@ -14,6 +14,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -30,7 +31,7 @@ import java.util.UUID;
 public class AddNewWorkout extends AppCompatActivity {
     private EditText etName, etSets, etBodyPart, etDifficulty;
     private Spinner spCat;
-    private View ivPhoto;
+    private ImageView ivPhoto;
     private FirebaseServices fbs;
     private Uri filePath;
     StorageReference storageReference;

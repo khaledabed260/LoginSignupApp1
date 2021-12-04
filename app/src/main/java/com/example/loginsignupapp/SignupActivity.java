@@ -100,38 +100,38 @@ public class SignupActivity extends AppCompatActivity {
     }
 
     public boolean CheckPassword(AppCompatActivity activity, String password) {
-        int countcap = 0, countsmall = 0, countnum = 0, countwildcard = 0, countchars = 0;
+        int countCap = 0, countSmall = 0, countNum = 0, countWildCard = 0, countChars = 0;
         for (int i = 0; i < password.length(); i++) {
             if (password.charAt(i) >= 'A' && password.charAt(i) <= 'Z')
-                countcap++;
+                countCap++;
             if (password.charAt(i) >= 'a' && password.charAt(i) <= 'z')
-                countsmall++;
+                countSmall++;
             for (int j = 0; j < 9; j++) {
                 if (password.charAt(i) == i)
-                    countnum++;
+                    countNum++;
             }
             for (int j = 0; j < 9; j++) {
                 if (password.charAt(i) != i) {
                     if (password.charAt(i) < 'A' && password.charAt(i) > 'Z')
-                        countwildcard++;
+                        countWildCard++;
                 }
             }
         }
-        countchars = countcap + countsmall;
-        if (countchars >= 8 && countchars <= 30) {
-            if (countcap < 1) {
+        countChars = countCap + countSmall;
+        if (countChars >= 8 && countChars <= 30) {
+            if (countCap < 1) {
                 Toast.makeText(activity, "it must be at least one capital letter!", Toast.LENGTH_SHORT).show();
                 return false;
             }
-            if (countsmall < 1) {
+            if (countSmall < 1) {
                 Toast.makeText(activity, "it must be at least one capital letter!", Toast.LENGTH_SHORT).show();
                 return false;
             }
-            if (countnum < 1) {
+            if (countNum < 1) {
                 Toast.makeText(activity, "it must be at least one number from 0-9!", Toast.LENGTH_SHORT).show();
                 return false;
             }
-            if (countwildcard < 1) {
+            if (countWildCard < 1) {
                 Toast.makeText(activity, "it must be at least one  wild card (@, #, $, ….)!", Toast.LENGTH_SHORT).show();
                 return false;
             }

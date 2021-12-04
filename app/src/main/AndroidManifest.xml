@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LoginSignupApp">
         <activity
+            android:name=".AllWorkoutActivity"
+            android:exported="true" />
+        <activity
             android:name=".AddNewWorkout"
             android:exported="true" />
         <activity

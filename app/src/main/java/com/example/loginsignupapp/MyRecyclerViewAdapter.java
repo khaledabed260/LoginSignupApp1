@@ -4,38 +4,36 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-public class AdapterWorkout extends RecyclerView.Adapter<AdapterWorkout.ViewHolder> {
+public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAdapter.ViewHolder> {
 
-    private List<HomeWorkout> mData;
+    private List<String> mData;
     private LayoutInflater mInflater;
-    private AdapterWorkout.ItemClickListener mClickListener;
+    private ItemClickListener mClickListener;
 
     // data is passed into the constructor
-    AdapterWorkout(Context context, List<HomeWorkout> data) {
+    MyRecyclerViewAdapter(Context context, List<String> data) {
         this.mInflater = LayoutInflater.from(context);
         this.mData = data;
     }
 
     // inflates the row layout from xml when needed
     @Override
-    public AdapterWorkout.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = mInflater.inflate(R.layout.rowWorkout, parent, false);
-        return new AdapterWorkout.ViewHolder(view);
+    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View view = mInflater.inflate(R.layout.row_workout, parent, false);
+        return new ViewHolder(view);
     }
 
     // binds the data to the TextView in each row
     @Override
-    public void onBindViewHolder(AdapterWorkout.ViewHolder holder, int position) {
-        HomeWorkout rest = mData.get(position);
-        holder.tvName.setText(rest.getName());
-        //holder.ivPhoto.setImageDrawable(rest.getPhoto());
+    public void onBindViewHolder(ViewHolder holder, int position) {
+        String animal = mData.get(position);
+        holder.myTextView.setText(animal);
     }
 
     // total number of rows
@@ -47,13 +45,11 @@ public class AdapterWorkout extends RecyclerView.Adapter<AdapterWorkout.ViewHold
 
     // stores and recycles views as they are scrolled off screen
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        TextView tvName;
-        ImageView ivPhoto;
+        TextView myTextView;
 
         ViewHolder(View itemView) {
             super(itemView);
-            tvName = itemView.findViewById(R.id.tvNameRow);
-            ivPhoto = itemView.findViewById(R.id.ivPhotoRow);
+            myTextView = itemView.findViewById(R.id.tvWorkoutAllWorkout);
             itemView.setOnClickListener(this);
         }
 
@@ -64,12 +60,12 @@ public class AdapterWorkout extends RecyclerView.Adapter<AdapterWorkout.ViewHold
     }
 
     // convenience method for getting data at click position
-    HomeWorkout getItem(int id) {
+    String getItem(int id) {
         return mData.get(id);
     }
 
     // allows clicks events to be caught
-    void setClickListener(AdapterWorkout.ItemClickListener itemClickListener) {
+    void setClickListener(ItemClickListener itemClickListener) {
         this.mClickListener = itemClickListener;
     }
 

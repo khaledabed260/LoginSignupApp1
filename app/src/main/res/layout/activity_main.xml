@@ -37,10 +37,41 @@
         android:id="@+id/button"
         android:layout_width="336dp"
         android:layout_height="49dp"
-        android:background="@empty"
         android:backgroundTint="@color/yellow"
+        android:onClick="login"
         android:text="Log In"
         android:textColor="@color/darkgray"
         tools:layout_editor_absoluteX="40dp"
         tools:layout_editor_absoluteY="379dp" />
+
+    <Button
+        android:id="@+id/btnAddWorkout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/yellow"
+        android:text="Add Workout"
+        android:textColor="@color/darkgray"
+        tools:layout_editor_absoluteX="40dp"
+        tools:layout_editor_absoluteY="632dp" />
+
+    <Button
+        android:id="@+id/btnAllWorkoutMain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/yellow"
+        android:text="All Workouts"
+        android:textColor="@color/darkgray"
+        tools:layout_editor_absoluteX="244dp"
+        tools:layout_editor_absoluteY="632dp" />
+
+    <Button
+        android:id="@+id/btnSignUp"
+        android:layout_width="202dp"
+        android:layout_height="48dp"
+        android:backgroundTint="@color/yellow"
+        android:onClick="SignUp"
+        android:text="Sign Up"
+        android:textColor="@color/darkgray"
+        tools:layout_editor_absoluteX="104dp"
+        tools:layout_editor_absoluteY="445dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
