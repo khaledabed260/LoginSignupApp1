@@ -19,7 +19,7 @@
             android:name=".AddNewWorkout"
             android:exported="true" />
         <activity
-            android:name=".SignUp"
+            android:name=".SignupActivity"
             android:exported="true" />
         <activity
             android:name=".MainActivity"
