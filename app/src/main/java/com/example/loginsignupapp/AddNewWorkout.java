@@ -10,7 +10,6 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
@@ -51,7 +50,7 @@ public class AddNewWorkout extends AppCompatActivity {
         etDifficulty=findViewById(R.id.etDifficulty);
         etBodyPart=findViewById(R.id.etBodyPart);
         etSets = findViewById(R.id.etSets);
-        spCat = findViewById(R.id.spRestCatAddExercise);
+        spCat = findViewById(R.id.etSpinnerAddExercise);
         ivPhoto = findViewById(R.id.ivPhotoAddExercise);
         fbs = FirebaseServices.getInstance();
         spCat.setAdapter(new ArrayAdapter<HWCat>(this, android.R.layout.simple_list_item_1, HWCat.values()));

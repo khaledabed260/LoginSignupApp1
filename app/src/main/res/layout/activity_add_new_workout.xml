@@ -50,7 +50,7 @@
         app:layout_constraintBottom_toTopOf="@+id/etButtonAddWorkout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spRestCatAddExercise"
+        app:layout_constraintTop_toBottomOf="@+id/etSpinnerAddExercise"
         tools:srcCompat="@tools:sample/avatars" />
 
     <EditText
@@ -77,14 +77,14 @@
         android:layout_marginBottom="121dp"
         android:backgroundTint="@color/yellow"
         android:text="Add Workout"
-        android:textColor="@color/darkgray"
+        android:textColor="@color/darkGray"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ivPhotoAddExercise" />
 
     <Spinner
-        android:id="@+id/spRestCatAddExercise"
+        android:id="@+id/etSpinnerAddExercise"
         android:layout_width="350dp"
         android:layout_height="58dp"
         android:layout_marginStart="1dp"
@@ -111,7 +111,7 @@
         android:inputType="textPersonName"
         android:textColorHint="@color/white"
         android:textColorLink="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/spRestCatAddExercise"
+        app:layout_constraintBottom_toTopOf="@+id/etSpinnerAddExercise"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etSets" />

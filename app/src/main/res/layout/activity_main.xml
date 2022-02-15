@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#292826"
+    android:background="@color/darkGray"
     tools:context=".MainActivity">
 
     <EditText
@@ -47,7 +47,7 @@
         android:backgroundTint="@color/yellow"
         android:onClick="login"
         android:text="Log In"
-        android:textColor="@color/darkgray"
+        android:textColor="@color/darkGray"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -60,7 +60,7 @@
         android:layout_marginBottom="51dp"
         android:backgroundTint="@color/yellow"
         android:text="Add Workout"
-        android:textColor="@color/darkgray"
+        android:textColor="@color/darkGray"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -72,7 +72,7 @@
         android:layout_marginBottom="51dp"
         android:backgroundTint="@color/yellow"
         android:text="All Workouts"
-        android:textColor="@color/darkgray"
+        android:textColor="@color/darkGray"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -84,7 +84,7 @@
         android:backgroundTint="@color/yellow"
         android:onClick="gotoSignup"
         android:text="Sign Up"
-        android:textColor="@color/darkgray"
+        android:textColor="@color/darkGray"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button" />

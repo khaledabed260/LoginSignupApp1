@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/darkgray"
-    android:backgroundTint="@color/darkgray"
+    android:background="@color/darkGray"
+    android:backgroundTint="@color/darkGray"
     tools:context=".SignUp">
 
     <EditText
@@ -65,7 +65,7 @@
         android:backgroundTint="@color/yellow"
         android:onClick="SignUp"
         android:text="Sign Up"
-        android:textColor="@color/darkgray"
+        android:textColor="@color/darkGray"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
