@@ -8,50 +8,50 @@
     tools:context=".WorkoutDetailsActivity">
 
     <ImageView
-        android:id="@+id/imageView6"
+        android:id="@+id/ivPhotoTricepsDips"
         android:layout_width="170dp"
         android:layout_height="170dp"
         android:layout_marginTop="50dp"
         android:layout_marginEnd="15dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button12"
+        app:layout_constraintTop_toBottomOf="@+id/btnRussianTwistViewDetails"
         tools:srcCompat="@tools:sample/avatars" />
 
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/ivPhotoSquats"
         android:layout_width="170dp"
         android:layout_height="170dp"
         android:layout_marginTop="50dp"
         android:layout_marginEnd="15dp"
-        app:layout_constraintBottom_toTopOf="@+id/button10"
+        app:layout_constraintBottom_toTopOf="@+id/btnSquatsViewDetails"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
         tools:srcCompat="@tools:sample/avatars" />
 
     <ImageView
-        android:id="@+id/imageView5"
+        android:id="@+id/ivPhotoRussianTwist"
         android:layout_width="170dp"
         android:layout_height="170dp"
         android:layout_marginTop="50dp"
         android:layout_marginEnd="15dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button10"
+        app:layout_constraintTop_toBottomOf="@+id/btnSquatsViewDetails"
         tools:srcCompat="@tools:sample/avatars" />
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/ivPhotoBackwardLunge"
         android:layout_width="170dp"
         android:layout_height="170dp"
         android:layout_marginStart="15dp"
         android:layout_marginTop="50dp"
-        app:layout_constraintBottom_toTopOf="@+id/button13"
+        app:layout_constraintBottom_toTopOf="@+id/btnBackwardLungeViewDetails"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button11"
+        app:layout_constraintTop_toBottomOf="@+id/btnPushUpViewDetails"
         tools:srcCompat="@tools:sample/avatars" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/ivPhotoAbdominalCrunches"
         android:layout_width="170dp"
         android:layout_height="170dp"
         android:layout_marginStart="15dp"
@@ -61,17 +61,17 @@
         tools:srcCompat="@tools:sample/avatars" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/ivPhotoPushUp"
         android:layout_width="170dp"
         android:layout_height="170dp"
         android:layout_marginStart="15dp"
         android:layout_marginTop="50dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button9"
+        app:layout_constraintTop_toBottomOf="@+id/btnAbdominalCrunchesViewDetails"
         tools:srcCompat="@tools:sample/avatars" />
 
     <Button
-        android:id="@+id/button9"
+        android:id="@+id/btnAbdominalCrunchesViewDetails"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
@@ -79,10 +79,10 @@
         android:text="View Details"
         android:textColor="@color/darkGray"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+        app:layout_constraintTop_toBottomOf="@+id/ivPhotoAbdominalCrunches" />
 
     <Button
-        android:id="@+id/button10"
+        android:id="@+id/btnSquatsViewDetails"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="30dp"
@@ -90,10 +90,10 @@
         android:text="View Details"
         android:textColor="@color/darkGray"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+        app:layout_constraintTop_toBottomOf="@+id/ivPhotoSquats" />
 
     <Button
-        android:id="@+id/button11"
+        android:id="@+id/btnPushUpViewDetails"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
@@ -101,10 +101,10 @@
         android:text="View Details"
         android:textColor="@color/darkGray"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/ivPhotoPushUp" />
 
     <Button
-        android:id="@+id/button12"
+        android:id="@+id/btnRussianTwistViewDetails"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="30dp"
@@ -112,10 +112,10 @@
         android:text="View Details"
         android:textColor="@color/darkGray"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView5" />
+        app:layout_constraintTop_toBottomOf="@+id/ivPhotoRussianTwist" />
 
     <Button
-        android:id="@+id/button13"
+        android:id="@+id/btnBackwardLungeViewDetails"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
@@ -123,10 +123,10 @@
         android:text="View Details"
         android:textColor="@color/darkGray"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+        app:layout_constraintTop_toBottomOf="@+id/ivPhotoBackwardLunge" />
 
     <Button
-        android:id="@+id/button14"
+        android:id="@+id/btnTricepsDipsViewDetails"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="30dp"
@@ -134,6 +134,6 @@
         android:text="View Details"
         android:textColor="@color/darkGray"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView6" />
+        app:layout_constraintTop_toBottomOf="@+id/ivPhotoTricepsDips" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
