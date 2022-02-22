@@ -5,6 +5,11 @@ enum ErrorCodes
     IncorrectAuth, FieldsEmpty, True, False
 }
 
+enum HWCategory
+{
+    All, Abdominal, Chest, Arm, Leg, Butt, Back
+}
+
 enum HWCat
 {
     Abdominal, Chest, Arm, Leg, Butt, Back

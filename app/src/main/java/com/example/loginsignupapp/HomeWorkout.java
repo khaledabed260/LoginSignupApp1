@@ -1,9 +1,5 @@
 package com.example.loginsignupapp;
 
-enum HWCategory
-{
-    All, Abdominal, Chest, Arm, Leg, Butt, Back
-}
 
 public class HomeWorkout {
     private String sets;
