@@ -12,6 +12,8 @@ import android.widget.Toast;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.squareup.picasso.Picasso;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -26,12 +28,10 @@ public class AdapterWorkout extends RecyclerView.Adapter<AdapterWorkout.ViewHold
     private final AdapterWorkout.ItemClickListener mClickListener = new ItemClickListener() {
         @Override
         public void onItemClick(View view, int position) {
-            // get restaurant data
             HomeWorkout workout = mData.get(position);
-            // upload restaurant data
-            // goto details activity
             Intent i = new Intent(context, WorkoutDetailsActivity.class);
             i.putExtra("workout", (Serializable)workout);
+            i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             context.startActivity(i);
         }
     };
@@ -55,7 +55,7 @@ public class AdapterWorkout extends RecyclerView.Adapter<AdapterWorkout.ViewHold
     public void onBindViewHolder(AdapterWorkout.ViewHolder holder, int position) {
         HomeWorkout workout = mData.get(position);
         holder.tvName.setText(workout.getName());
-        //holder.ivPhoto.setImageDrawable(rest.getPhoto());
+        Picasso.get().load(workout.getPicture()).into(holder.ivPhoto);
     }
 
     // total number of rows

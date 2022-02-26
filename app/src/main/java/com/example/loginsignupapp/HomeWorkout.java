@@ -1,21 +1,21 @@
 package com.example.loginsignupapp;
 
 
-public class HomeWorkout {
+import java.io.Serializable;
+
+public class HomeWorkout implements Serializable {
     private String sets;
     private String name;
-    private String bodyPart;
     private String difficulty;
     private String picture;
-    private HWCategory category;
+    private HWCat category;
 
     public HomeWorkout() {
     }
 
-    public HomeWorkout(String sets, String name, String bodyPart, String difficulty, String picture, HWCategory category) {
+    public HomeWorkout(String sets, String name, String difficulty, String picture, HWCat category) {
         this.sets = sets;
         this.name = name;
-        this.bodyPart = bodyPart;
         this.difficulty = difficulty;
         this.picture = picture;
         this.category = category;
@@ -37,14 +37,6 @@ public class HomeWorkout {
         this.name = name;
     }
 
-    public String getBodyPart() {
-        return bodyPart;
-    }
-
-    public void setBodyPart(String bodyPart) {
-        this.bodyPart = bodyPart;
-    }
-
     public String getDifficulty() {
         return difficulty;
     }
@@ -61,11 +53,11 @@ public class HomeWorkout {
         this.picture = picture;
     }
 
-    public HWCategory getCategory() {
+    public HWCat getCategory() {
         return category;
     }
 
-    public void setCategory(HWCategory category) {
+    public void setCategory(HWCat category) {
         this.category = category;
     }
 
@@ -74,7 +66,6 @@ public class HomeWorkout {
         return "HomeWorkout{" +
                 "sets='" + sets + '\'' +
                 ", name='" + name + '\'' +
-                ", bodyPart='" + bodyPart + '\'' +
                 ", difficulty='" + difficulty + '\'' +
                 ", picture='" + picture + '\'' +
                 ", category=" + category +

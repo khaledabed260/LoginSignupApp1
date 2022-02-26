@@ -6,34 +6,34 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
-import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
-
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
-
-import java.io.IOException;
+import com.squareup.picasso.Picasso;
 import java.util.UUID;
 
 public class AddNewWorkout extends AppCompatActivity {
-    private EditText etName, etSets, etBodyPart, etDifficulty;
+
+    private static final String TAG = "AddWorkoutActivity";
+    private EditText etName, etSets, etDifficulty;
     private Spinner spCat;
     private ImageView ivPhoto;
     private FirebaseServices fbs;
     private Uri filePath;
     StorageReference storageReference;
+    private String refAfterSuccessfullUpload = null;
 
 
     @Override
@@ -48,9 +48,9 @@ public class AddNewWorkout extends AppCompatActivity {
     private void connectComponent(){
         etName=findViewById(R.id.etName);
         etDifficulty=findViewById(R.id.etDifficulty);
-        etBodyPart=findViewById(R.id.etBodyPart);
         etSets = findViewById(R.id.etSets);
         spCat = findViewById(R.id.etSpinnerAddExercise);
+        spCat.setSelection(0);
         ivPhoto = findViewById(R.id.ivPhotoAddExercise);
         fbs = FirebaseServices.getInstance();
         spCat.setAdapter(new ArrayAdapter<HWCat>(this, android.R.layout.simple_list_item_1, HWCat.values()));
@@ -60,25 +60,24 @@ public class AddNewWorkout extends AppCompatActivity {
 
     public void add(View view) {
         // check if any field is empty
-        String name, bodyPart, sets,  picture, difficulty;
+        String name, sets,  picture, difficulty;
         String category;
         difficulty = etDifficulty.getText().toString();
         name = etName.getText().toString();
-        bodyPart = etBodyPart.getText().toString();
         sets =etSets.getText().toString();
         category = spCat.getSelectedItem().toString();
         if (ivPhoto.getDrawableState() == null)
             picture = "no_image";
         else picture = storageReference.getDownloadUrl().toString();
 
-        if (name.trim().isEmpty() || bodyPart.trim().isEmpty() || sets.trim().isEmpty() ||
+        if (name.trim().isEmpty() ||  sets.trim().isEmpty() ||
                 category.trim().isEmpty() || picture.trim().isEmpty())
         {
             Toast.makeText(this,"some fields are empty!", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        HomeWorkout workout = new HomeWorkout(name, sets, bodyPart, difficulty, picture, HWCategory.valueOf(category));
+        HomeWorkout workout = new HomeWorkout(name, sets, difficulty, picture, HWCat.valueOf(category));
         fbs.getFire().collection("workouts")
                 .add(workout)
                 .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
@@ -107,15 +106,10 @@ public class AddNewWorkout extends AppCompatActivity {
         if (requestCode == 40) {
             if (resultCode == Activity.RESULT_OK) {
                 if (data != null) {
-                    try {
-                        filePath = data.getData();
-                        Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), data.getData());
-                        ivPhoto.setBackground(null);
-                        ivPhoto.setImageBitmap(bitmap);
-                        uploadImage();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
+                    filePath = data.getData();
+                    ivPhoto.setBackground(null);
+                    Picasso.get().load(filePath).into(ivPhoto);
+                    uploadImage();
                 }
             } else if (resultCode == Activity.RESULT_CANCELED)  {
                 Toast.makeText(this, "Canceled", Toast.LENGTH_SHORT).show();
@@ -159,6 +153,7 @@ public class AddNewWorkout extends AppCompatActivity {
                                                     "Image Uploaded!!",
                                                     Toast.LENGTH_SHORT)
                                             .show();
+                                    refAfterSuccessfullUpload = ref.toString();
                                 }
                             })
 
