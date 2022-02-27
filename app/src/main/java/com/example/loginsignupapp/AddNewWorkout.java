@@ -32,9 +32,8 @@ public class AddNewWorkout extends AppCompatActivity {
     private ImageView ivPhoto;
     private FirebaseServices fbs;
     private Uri filePath;
-    StorageReference storageReference;
+    private StorageReference storageReference;
     private String refAfterSuccessfullUpload = null;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,8 +42,8 @@ public class AddNewWorkout extends AppCompatActivity {
 
         getSupportActionBar().hide();
         connectComponent();
-
     }
+
     private void connectComponent(){
         etName=findViewById(R.id.etName);
         etDifficulty=findViewById(R.id.etDifficulty);
@@ -60,24 +59,24 @@ public class AddNewWorkout extends AppCompatActivity {
 
     public void add(View view) {
         // check if any field is empty
-        String name, sets,  picture, difficulty;
+        String name, sets,  photo, difficulty;
         String category;
         difficulty = etDifficulty.getText().toString();
         name = etName.getText().toString();
         sets =etSets.getText().toString();
         category = spCat.getSelectedItem().toString();
         if (ivPhoto.getDrawableState() == null)
-            picture = "no_image";
-        else picture = storageReference.getDownloadUrl().toString();
+            photo = "no_image";
+        else photo = storageReference.getDownloadUrl().toString();
 
         if (name.trim().isEmpty() ||  sets.trim().isEmpty() ||
-                category.trim().isEmpty() || picture.trim().isEmpty())
+                category.trim().isEmpty() || photo.trim().isEmpty())
         {
             Toast.makeText(this,"some fields are empty!", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        HomeWorkout workout = new HomeWorkout(name, sets, difficulty, picture, HWCat.valueOf(category));
+        HomeWorkout workout = new HomeWorkout(name, sets, difficulty, photo, HWCat.valueOf(category));
         fbs.getFire().collection("workouts")
                 .add(workout)
                 .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
@@ -98,7 +97,7 @@ public class AddNewWorkout extends AppCompatActivity {
         Intent intent = new Intent();
         intent.setType("image/*");
         intent.setAction(Intent.ACTION_GET_CONTENT);
-        startActivityForResult(Intent.createChooser(intent, "Select Picture"),40);
+        startActivityForResult(Intent.createChooser(intent, "Select Photo"),40);
     }
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {

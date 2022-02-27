@@ -7,17 +7,17 @@ public class HomeWorkout implements Serializable {
     private String sets;
     private String name;
     private String difficulty;
-    private String picture;
+    private String photo;
     private HWCat category;
 
     public HomeWorkout() {
     }
 
-    public HomeWorkout(String sets, String name, String difficulty, String picture, HWCat category) {
+    public HomeWorkout(String sets, String name, String difficulty, String photo, HWCat category) {
         this.sets = sets;
         this.name = name;
         this.difficulty = difficulty;
-        this.picture = picture;
+        this.photo = photo;
         this.category = category;
     }
 
@@ -45,12 +45,10 @@ public class HomeWorkout implements Serializable {
         this.difficulty = difficulty;
     }
 
-    public String getPicture() {
-        return picture;
-    }
+    public String getPhoto() { return photo;}
 
-    public void setPicture(String picture) {
-        this.picture = picture;
+    public void setPhoto(String photo) {
+        this.photo = photo;
     }
 
     public HWCat getCategory() {
@@ -67,7 +65,7 @@ public class HomeWorkout implements Serializable {
                 "sets='" + sets + '\'' +
                 ", name='" + name + '\'' +
                 ", difficulty='" + difficulty + '\'' +
-                ", picture='" + picture + '\'' +
+                ", photo='" + photo + '\'' +
                 ", category=" + category +
                 '}';
     }

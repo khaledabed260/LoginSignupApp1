@@ -55,7 +55,7 @@ public class AdapterWorkout extends RecyclerView.Adapter<AdapterWorkout.ViewHold
     public void onBindViewHolder(AdapterWorkout.ViewHolder holder, int position) {
         HomeWorkout workout = mData.get(position);
         holder.tvName.setText(workout.getName());
-        Picasso.get().load(workout.getPicture()).into(holder.ivPhoto);
+        Picasso.get().load(workout.getPhoto()).into(holder.ivPhoto);
     }
 
     // total number of rows
