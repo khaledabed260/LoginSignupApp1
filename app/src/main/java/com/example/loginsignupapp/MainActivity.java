@@ -71,12 +71,12 @@ public class MainActivity extends AppCompatActivity {
         startActivity(i);
     }
 
-    public void gotoAddRest(View view) {
+    public void gotoAddNewWorkout(View view) {
         Intent i = new Intent(this, AddNewWorkout.class);
         startActivity(i);
     }
 
-    public void gotoAllRests(View view) {
+    public void gotoAllWorkout(View view) {
         Intent i = new Intent(this, AllWorkoutActivity.class);
         startActivity(i);
     }

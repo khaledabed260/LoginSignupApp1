@@ -34,7 +34,7 @@ public class SignupActivity extends AppCompatActivity {
     public void SignUp(View view) {
         // TODO: 1- Get data from screen
         String username = etUsername.getText().toString();
-        String password = etUsername.getText().toString();
+        String password = etPassword.getText().toString();
         String confirmPassword = etConfirmPassword.getText().toString();
 
         // TODO: 2- Data validation
