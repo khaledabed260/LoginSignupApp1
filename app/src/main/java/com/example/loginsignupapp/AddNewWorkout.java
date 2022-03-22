@@ -131,7 +131,8 @@ public class AddNewWorkout extends AppCompatActivity {
                     = storageReference
                     .child(
                             "images/"
-                                    + UUID.randomUUID().toString());
+                                    + filePath.getLastPathSegment());
+                                   // + UUID.randomUUID().toString());
 
             // adding listeners on upload
             // or failure of image

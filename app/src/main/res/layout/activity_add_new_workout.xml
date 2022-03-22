@@ -42,6 +42,7 @@
 
     <ImageView
         android:id="@+id/ivPhotoAddExercise"
+        android:onClick="selectPhoto"
         android:layout_width="200dp"
         android:layout_height="200dp"
         android:layout_marginBottom="41dp"
@@ -53,6 +54,7 @@
 
     <Button
         android:id="@+id/etButtonAddWorkout"
+        android:onClick="add"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="27dp"

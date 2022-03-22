@@ -19,7 +19,7 @@ import java.util.List;
 
 public class AllWorkoutActivity extends AppCompatActivity {
 
-    private RecyclerView rvAllWorkouts;
+    private RecyclerView rvAllWorkout;
     AdapterWorkout adapter;
     FirebaseServices fbs;
     ArrayList<HomeWorkout> workouts;
