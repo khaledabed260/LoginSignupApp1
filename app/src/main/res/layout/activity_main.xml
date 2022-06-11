@@ -38,14 +38,14 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/btnLoginMain"
+        android:id="@+id/btnAllWorkoutMain"
         android:layout_width="0dp"
         android:layout_height="49dp"
         android:layout_marginStart="35dp"
         android:layout_marginEnd="35dp"
         android:layout_marginBottom="303dp"
         android:backgroundTint="@color/yellow"
-        android:onClick="login"
+        android:onClick="gotoAllWorkout"
         android:text="Log In"
         android:textColor="@color/darkGray"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -56,27 +56,14 @@
         android:id="@+id/btnAddWorkout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginBottom="51dp"
+        android:layout_marginStart="132dp"
+        android:layout_marginBottom="44dp"
         android:backgroundTint="@color/yellow"
         android:onClick="gotoAddNewWorkout"
         android:text="Add Workout"
         android:textColor="@color/darkGray"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/btnAllWorkoutMain"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="51dp"
-        android:backgroundTint="@color/yellow"
-        android:onClick="gotoAllWorkout"
-        android:text="All Workouts"
-        android:textColor="@color/darkGray"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
         android:id="@+id/btnSignUp"
@@ -89,6 +76,6 @@
         android:textColor="@color/darkGray"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnLoginMain" />
+        app:layout_constraintTop_toBottomOf="@+id/btnAllWorkoutMain" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

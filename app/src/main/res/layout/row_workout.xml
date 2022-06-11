@@ -8,17 +8,19 @@
 
     <ImageView
         android:id="@+id/ivPhotoWorkoutRow"
-        android:layout_width="100dp"
-        android:layout_height="200dp"
+        android:layout_width="89dp"
+        android:layout_height="wrap_content"
         android:layout_weight="1"
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
         android:id="@+id/tvNameWorkoutRow"
-        android:layout_width="100dp"
-        android:layout_height="200dp"
+        android:layout_width="107dp"
+        android:layout_height="129dp"
         android:layout_weight="1"
         android:background="@color/yellow"
-        android:text="TextView"
-        android:textColor="@color/darkGray" />
+        android:text="Text View"
+        android:textColor="@color/darkGray"
+        android:textSize="24sp" />
+
 </LinearLayout>
