@@ -90,7 +90,7 @@ public class AdapterWorkout extends RecyclerView.Adapter<AdapterWorkout.ViewHold
 
     // allows clicks events to be caught
     /*
-    void setClickListener(AdapterRestaurant.ItemClickListener itemClickListener) {
+    void setClickListener(AdapterWorkout.ItemClickListener itemClickListener) {
         this.mClickListener = itemClickListener;
     }*/
 
