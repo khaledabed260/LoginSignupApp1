@@ -15,6 +15,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,26 +24,24 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseServices fbs;
 
     @Override
+    public void onStart() {
+        super.onStart();
+        // Check if user is signed in (non-null) and update UI accordingly.
+        FirebaseUser currentUser = fbs.getAuth().getCurrentUser();
+        if (currentUser!=null)
+        {
+            Intent i = new Intent(MainActivity.this, AllWorkoutActivity.class);
+            startActivity(i);
+        }
+
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ImageView leftIcon = findViewById(R.id.left_icon);
-        ImageView rightIcon = findViewById(R.id.right_icon);
-        TextView Title = findViewById(R.id.toolbar_title);
 
-        leftIcon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(MainActivity.this,"You Clicked On Left Icon" ,Toast.LENGTH_SHORT).show();
-            }
-        });
-        rightIcon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(MainActivity.this,"You Clicked On Right Icon" ,Toast.LENGTH_SHORT).show();
-            }
-        });
 
 
         connectComponents();

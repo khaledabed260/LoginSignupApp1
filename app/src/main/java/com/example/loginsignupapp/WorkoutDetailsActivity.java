@@ -3,8 +3,11 @@ package com.example.loginsignupapp;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import com.squareup.picasso.Picasso;
 
 public class WorkoutDetailsActivity extends AppCompatActivity {
@@ -24,9 +27,25 @@ public class WorkoutDetailsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_workout_details);
 
+        ImageView leftIcon = findViewById(R.id.left_icon);
+        ImageView rightIcon = findViewById(R.id.right_icon);
+
+        leftIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(WorkoutDetailsActivity.this,"You Clicked On Left Icon" ,Toast.LENGTH_SHORT).show();
+            }
+        });
+        rightIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(WorkoutDetailsActivity.this,"You Clicked On Right Icon" ,Toast.LENGTH_SHORT).show();
+            }
+        });
+
         connectComponents();
         Intent i = this.getIntent();
-        HomeWorkout workout = (HomeWorkout) i.getSerializableExtra("rest");
+        HomeWorkout workout = (HomeWorkout) i.getSerializableExtra("workout");
 
         tvName.setText(workout.getName());
         tvDifficulty.setText(workout.getDifficulty());

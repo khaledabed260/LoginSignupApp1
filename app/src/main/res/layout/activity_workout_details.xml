@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/darkGray"
     tools:context=".WorkoutDetailsActivity">
+    <include layout="@layout/toolbar"/>
 
     <TextView
         android:id="@+id/tvNameWorkoutDetails"

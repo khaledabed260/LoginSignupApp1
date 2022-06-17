@@ -2,6 +2,9 @@ package com.example.loginsignupapp;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -29,6 +32,22 @@ public class AllWorkoutActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_all_workout);
+
+        ImageView leftIcon = findViewById(R.id.left_icon);
+        ImageView rightIcon = findViewById(R.id.right_icon);
+
+        leftIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(AllWorkoutActivity.this,"You Clicked On Left Icon" ,Toast.LENGTH_SHORT).show();
+            }
+        });
+        rightIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(AllWorkoutActivity.this,"You Clicked On Right Icon" ,Toast.LENGTH_SHORT).show();
+            }
+        });
 
         fbs = FirebaseServices.getInstance();
         workouts = new ArrayList<HomeWorkout>();

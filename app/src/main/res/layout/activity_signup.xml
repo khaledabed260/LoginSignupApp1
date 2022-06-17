@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/darkGray"
     tools:context=".SignupActivity">
+    <include layout="@layout/toolbar"/>
 
     <EditText
         android:id="@+id/etUsernameSignup"

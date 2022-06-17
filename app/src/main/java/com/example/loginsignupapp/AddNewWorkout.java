@@ -14,6 +14,7 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -39,6 +40,22 @@ public class AddNewWorkout extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_new_workout);
+
+        ImageView leftIcon = findViewById(R.id.left_icon);
+        ImageView rightIcon = findViewById(R.id.right_icon);
+
+        leftIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(AddNewWorkout.this,"You Clicked On Left Icon" ,Toast.LENGTH_SHORT).show();
+            }
+        });
+        rightIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(AddNewWorkout.this,"You Clicked On Right Icon" ,Toast.LENGTH_SHORT).show();
+            }
+        });
 
         getSupportActionBar().hide();
         connectComponent();
