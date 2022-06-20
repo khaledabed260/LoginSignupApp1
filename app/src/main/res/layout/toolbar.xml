@@ -24,13 +24,14 @@
             android:textSize="20sp"
             android:layout_toEndOf="@id/left_icon"
             android:text="Home Workout"/>
+
         <ImageView
+            android:id="@+id/right_icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/right_icon"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
-            android:src="@drawable/ic_baseline_menu_24"/>
+            android:src="@drawable/ic_baseline_menu_24" />
     </RelativeLayout>
 
 </RelativeLayout>
