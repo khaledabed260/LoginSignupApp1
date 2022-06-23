@@ -2,12 +2,16 @@ package com.example.loginsignupapp;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -18,6 +22,7 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class AllWorkoutActivity extends AppCompatActivity {
@@ -33,22 +38,6 @@ public class AllWorkoutActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_all_workout);
 
-        ImageView leftIcon = findViewById(R.id.left_icon);
-        ImageView rightIcon = findViewById(R.id.right_icon);
-
-        leftIcon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(AllWorkoutActivity.this,"You Clicked On Left Icon" ,Toast.LENGTH_SHORT).show();
-            }
-        });
-        rightIcon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(AllWorkoutActivity.this,"You Clicked On Right Icon" ,Toast.LENGTH_SHORT).show();
-            }
-        });
-
         fbs = FirebaseServices.getInstance();
         workouts = new ArrayList<HomeWorkout>();
         readData();
@@ -62,19 +51,48 @@ public class AllWorkoutActivity extends AppCompatActivity {
             }
         };
 
+        ActionBar actionBar = getSupportActionBar();
 
-        // set up the RecyclerView
-        /*
-        RecyclerView recyclerView = findViewById(R.id.rvRestsAllRest);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new AdapterRestaurant(this, rests);
-        recyclerView.setAdapter(adapter);*/
+        actionBar.setTitle("  WorkoutApp");
+        actionBar.setDisplayUseLogoEnabled(true);
+        actionBar.setDisplayShowHomeEnabled(true);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.toolbar, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            //case R.id.miSearch:
+            // User chose the "Settings" item, show the app settings UI...
+            //return true;
+
+            case R.id.miProfile:
+                // User chose the "Favorite" action, mark the current item
+                // as a favorite...
+                return true;
+
+            case R.id.miSettings:
+
+                return true;
+
+            default:
+                // If we got here, the user's action was not recognized.
+                // Invoke the superclass to handle it.
+                return super.onOptionsItemSelected(item);
+
+        }
     }
 
     private void readData() {
         try {
 
-            fbs.getFire().collection("workouts")
+            fbs.getFire().collection("restaurants")
                     .get()
                     .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                         @Override
@@ -90,9 +108,13 @@ public class AllWorkoutActivity extends AppCompatActivity {
                             }
                         }
                     });
-        } catch (Exception e) {
+
+            // TODO: Added sorting
+            //Collections.sort(rests, new HomeWotkoutComparator());
+        }
+        catch (Exception e)
+        {
             Toast.makeText(getApplicationContext(), "error reading!" + e.getMessage(), Toast.LENGTH_SHORT).show();
         }
     }
 }
-

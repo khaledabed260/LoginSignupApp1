@@ -27,7 +27,7 @@ import java.util.UUID;
 
 public class AddNewWorkout extends AppCompatActivity {
 
-    private static final String TAG = "AddWorkoutActivity";
+    private static final String TAG = "AddNewWorkoutActivity";
     private EditText etName, etSets, etDifficulty;
     private Spinner spCat;
     private ImageView ivPhoto;
@@ -41,71 +41,55 @@ public class AddNewWorkout extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_new_workout);
 
-        ImageView leftIcon = findViewById(R.id.left_icon);
-        ImageView rightIcon = findViewById(R.id.right_icon);
-
-        leftIcon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(AddNewWorkout.this,"You Clicked On Left Icon" ,Toast.LENGTH_SHORT).show();
-            }
-        });
-        rightIcon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(AddNewWorkout.this,"You Clicked On Right Icon" ,Toast.LENGTH_SHORT).show();
-            }
-        });
-
         getSupportActionBar().hide();
-        connectComponent();
+        connectComponents();
     }
 
-    private void connectComponent(){
-        etName=findViewById(R.id.etName);
-        etDifficulty=findViewById(R.id.etDifficulty);
+    private void connectComponents() {
+        etName = findViewById(R.id.etName);
         etSets = findViewById(R.id.etSets);
+        etDifficulty = findViewById(R.id.etDifficulty);
         spCat = findViewById(R.id.etSpinnerAddExercise);
-        spCat.setSelection(0);
         ivPhoto = findViewById(R.id.ivPhotoAddExercise);
         fbs = FirebaseServices.getInstance();
         spCat.setAdapter(new ArrayAdapter<HWCat>(this, android.R.layout.simple_list_item_1, HWCat.values()));
         storageReference = fbs.getStorage().getReference();
-
     }
 
     public void add(View view) {
         // check if any field is empty
-        String name, sets,  photo, difficulty;
-        String category;
-        difficulty = etDifficulty.getText().toString();
+        String name, sets, difficulty, category, photo;
         name = etName.getText().toString();
-        sets =etSets.getText().toString();
+        sets = etSets.getText().toString();
+        difficulty= etDifficulty.getText().toString();
         category = spCat.getSelectedItem().toString();
-        if (ivPhoto.getDrawableState() == null)
+        //if (ivPhoto.getDrawable() == null)
+        //  photo = "no_image";
+        if (refAfterSuccessfullUpload == null)
             photo = "no_image";
-        else photo = storageReference.getDownloadUrl().toString();
+        else photo = refAfterSuccessfullUpload;
 
-        if (name.trim().isEmpty() ||  sets.trim().isEmpty() ||
+        if (name.trim().isEmpty() || sets.trim().isEmpty() || difficulty.trim().isEmpty() ||
                 category.trim().isEmpty() || photo.trim().isEmpty())
         {
-            Toast.makeText(this,"some fields are empty!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.err_fields_empty, Toast.LENGTH_SHORT).show();
             return;
         }
 
-        HomeWorkout workout = new HomeWorkout(name, sets, difficulty, photo, HWCat.valueOf(category));
+        HomeWorkout workout = new HomeWorkout(name, sets, difficulty, HWCat.valueOf(category), photo);
+        //     public HomeWorkout(String sets, String name, String difficulty, String photo, HWCat category) {
         fbs.getFire().collection("workouts")
                 .add(workout)
                 .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                     @Override
                     public void onSuccess(DocumentReference documentReference) {
-                        //Log.d(TAG, "DocumentSnapshot added with ID: " + documentReference.getId());
+                        Log.d(TAG, "DocumentSnapshot added with ID: " + documentReference.getId());
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        //Log.w(TAG, "Error adding document", e);
+                        Log.w(TAG, "Error adding document", e);
                     }
                 });
     }
@@ -114,7 +98,7 @@ public class AddNewWorkout extends AppCompatActivity {
         Intent intent = new Intent();
         intent.setType("image/*");
         intent.setAction(Intent.ACTION_GET_CONTENT);
-        startActivityForResult(Intent.createChooser(intent, "Select Photo"),40);
+        startActivityForResult(Intent.createChooser(intent, "Select Picture"),40);
     }
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -148,8 +132,7 @@ public class AddNewWorkout extends AppCompatActivity {
                     = storageReference
                     .child(
                             "images/"
-                                    + filePath.getLastPathSegment());
-                                   // + UUID.randomUUID().toString());
+                                    + UUID.randomUUID().toString());
 
             // adding listeners on upload
             // or failure of image

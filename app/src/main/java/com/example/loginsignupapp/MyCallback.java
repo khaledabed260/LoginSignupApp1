@@ -4,5 +4,5 @@ import java.util.List;
 
 
 public interface MyCallback {
-    void onCallback(List<HomeWorkout> attractionsList);
+    void onCallback(List<HomeWorkout> workoutList);
 }

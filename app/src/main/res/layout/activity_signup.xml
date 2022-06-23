@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/darkGray"
     tools:context=".SignupActivity">
-    <include layout="@layout/toolbar"/>
+
 
     <EditText
         android:id="@+id/etUsernameSignup"
@@ -63,7 +63,7 @@
         android:layout_marginEnd="62dp"
         android:layout_marginBottom="270dp"
         android:backgroundTint="@color/yellow"
-        android:onClick="SignUp"
+        android:onClick="signup"
         android:text="Sign Up"
         android:textColor="@color/darkGray"
         app:layout_constraintBottom_toBottomOf="parent"

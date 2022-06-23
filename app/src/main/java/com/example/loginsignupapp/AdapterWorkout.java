@@ -1,8 +1,12 @@
 package com.example.loginsignupapp;
 
+import static android.content.ContentValues.TAG;
+
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,8 +14,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.squareup.picasso.Picasso;
 
 import java.io.Serializable;
@@ -23,15 +30,15 @@ public class AdapterWorkout extends RecyclerView.Adapter<AdapterWorkout.ViewHold
     private List<HomeWorkout> mData;
     private LayoutInflater mInflater;
     private Context context;
-
+    private FirebaseServices fbs;
 
     private final AdapterWorkout.ItemClickListener mClickListener = new ItemClickListener() {
         @Override
         public void onItemClick(View view, int position) {
             HomeWorkout workout = mData.get(position);
             Intent i = new Intent(context, WorkoutDetailsActivity.class);
-            i.putExtra("workout", (Serializable)workout);
-            i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            i.putExtra("workout", workout);
+
             context.startActivity(i);
         }
     };
@@ -41,6 +48,7 @@ public class AdapterWorkout extends RecyclerView.Adapter<AdapterWorkout.ViewHold
         this.mInflater = LayoutInflater.from(context);
         this.mData = data;
         this.context = context;
+        this.fbs = FirebaseServices.getInstance();
     }
 
     // inflates the row layout from xml when needed
@@ -55,7 +63,18 @@ public class AdapterWorkout extends RecyclerView.Adapter<AdapterWorkout.ViewHold
     public void onBindViewHolder(AdapterWorkout.ViewHolder holder, int position) {
         HomeWorkout workout = mData.get(position);
         holder.tvName.setText(workout.getName());
-        Picasso.get().load(workout.getPhoto()).into(holder.ivPhoto);
+        fbs.getStorage().getReference().child(workout.getPhoto()).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+            @Override
+            public void onSuccess(Uri uri) {
+                Picasso.get().load(workout.getPhoto()).into(holder.ivPhoto);
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Log.e(TAG, e.getMessage());
+            }
+        });
+
     }
 
     // total number of rows
@@ -64,8 +83,7 @@ public class AdapterWorkout extends RecyclerView.Adapter<AdapterWorkout.ViewHold
         return mData.size();
     }
 
-
-    // stores and recycles views as they are scrolled off screen
+    // stores and recycles views as they are scrol    led off screen
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView tvName;
         ImageView ivPhoto;
@@ -84,20 +102,13 @@ public class AdapterWorkout extends RecyclerView.Adapter<AdapterWorkout.ViewHold
     }
 
     // convenience method for getting data at click position
-  HomeWorkout getItem(int id) {
+    HomeWorkout getItem(int id) {
         return mData.get(id);
     }
-
-    // allows clicks events to be caught
-    /*
-    void setClickListener(AdapterWorkout.ItemClickListener itemClickListener) {
-        this.mClickListener = itemClickListener;
-    }*/
 
     // parent activity will implement this method to respond to click events
     public interface ItemClickListener {
         void onItemClick(View view, int position);
     }
 }
-
 

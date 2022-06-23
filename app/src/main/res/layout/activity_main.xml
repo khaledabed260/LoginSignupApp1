@@ -7,11 +7,28 @@
     android:background="@color/darkGray"
     tools:context=".MainActivity">
 
+    <Button
+        android:id="@+id/btnLoginMain"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="55dp"
+        android:layout_marginTop="365dp"
+        android:layout_marginEnd="55dp"
+        android:layout_marginBottom="225dp"
+        android:backgroundTint="@color/yellow"
+        android:onClick="login"
+        android:text="Log In"
+        android:textColor="@color/darkGray"
+        app:layout_constraintBottom_toTopOf="@+id/btnAddWorkout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <EditText
         android:id="@+id/etUsernameMain"
         android:layout_width="241dp"
-        android:layout_height="52dp"
-        android:layout_marginStart="2dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="120dp"
         android:layout_marginBottom="68dp"
         android:backgroundTint="@color/yellow"
         android:ems="10"
@@ -20,62 +37,70 @@
         android:textColor="@color/white"
         android:textColorHint="@color/white"
         app:layout_constraintBottom_toTopOf="@+id/etPasswordMain"
-        app:layout_constraintStart_toStartOf="@+id/etPasswordMain" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/etPasswordMain"
         android:layout_width="241dp"
-        android:layout_height="52dp"
-        android:layout_marginTop="240dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="73dp"
         android:backgroundTint="@color/yellow"
         android:ems="10"
         android:hint="Password"
         android:inputType="textPassword"
         android:textColor="@color/white"
         android:textColorHint="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/btnLoginMain"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/etUsernameMain" />
 
     <Button
         android:id="@+id/btnAllWorkoutMain"
         android:layout_width="0dp"
-        android:layout_height="49dp"
-        android:layout_marginStart="35dp"
-        android:layout_marginEnd="35dp"
-        android:layout_marginBottom="303dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="39dp"
+        android:layout_marginBottom="43dp"
         android:backgroundTint="@color/yellow"
         android:onClick="gotoAllWorkout"
-        android:text="Log In"
+        android:text="All Workouts"
         android:textColor="@color/darkGray"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toStartOf="@+id/btnAddWorkout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnSignUp" />
 
     <Button
         android:id="@+id/btnAddWorkout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="132dp"
-        android:layout_marginBottom="44dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="43dp"
         android:backgroundTint="@color/yellow"
         android:onClick="gotoAddNewWorkout"
         android:text="Add Workout"
         android:textColor="@color/darkGray"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnAllWorkoutMain"
+        app:layout_constraintTop_toBottomOf="@+id/btnLoginMain" />
 
     <Button
         android:id="@+id/btnSignUp"
         android:layout_width="202dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="17dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="144dp"
         android:backgroundTint="@color/yellow"
         android:onClick="gotoSignup"
         android:text="Sign Up"
         android:textColor="@color/darkGray"
+        app:layout_constraintBottom_toTopOf="@+id/btnAllWorkoutMain"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnAllWorkoutMain" />
+        app:layout_constraintTop_toBottomOf="@+id/btnLoginMain" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

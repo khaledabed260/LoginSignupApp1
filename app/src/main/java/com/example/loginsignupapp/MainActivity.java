@@ -24,26 +24,10 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseServices fbs;
 
     @Override
-    public void onStart() {
-        super.onStart();
-        // Check if user is signed in (non-null) and update UI accordingly.
-        FirebaseUser currentUser = fbs.getAuth().getCurrentUser();
-        if (currentUser!=null)
-        {
-            Intent i = new Intent(MainActivity.this, AllWorkoutActivity.class);
-            startActivity(i);
-        }
-
-    }
-
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
-
-
+        getSupportActionBar().hide();
         connectComponents();
     }
 
@@ -60,13 +44,13 @@ public class MainActivity extends AppCompatActivity {
 
         if (username.trim().isEmpty() || password.trim().isEmpty())
         {
-            Toast.makeText(this, "Some fields are empty!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.err_fields_empty, Toast.LENGTH_SHORT).show();
             return;
         }
 
         if (!utils.validateEmail(username) || !utils.validatePassword(password))
         {
-            Toast.makeText(this, "Incorrect email or password!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.err_incorrect_user_password, Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -79,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
                             startActivity(i);
 
                         } else {
-                            // TODO: what to do if fails
+                            Toast.makeText(MainActivity.this, R.string.err_incorrect_user_password, Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
@@ -99,4 +83,21 @@ public class MainActivity extends AppCompatActivity {
         Intent i = new Intent(this, AllWorkoutActivity.class);
         startActivity(i);
     }
+
+    /*
+    public boolean deleteRests()
+    {
+        DocumentReference docRef = fbs.getFire().collection("restaurants").document("BJ");
+
+        // Remove the 'capital' field from the document
+        Map<String,Object> updates = new HashMap<>();
+        updates.put("capital", FieldValue.delete());
+
+        docRef.update(updates).addOnCompleteListener(new OnCompleteListener<Void>() {
+            // [START_EXCLUDE]
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {}
+            // [START_EXCLUDE]
+        });
+    }*/
 }

@@ -16,10 +16,9 @@ public class WorkoutDetailsActivity extends AppCompatActivity {
     private ImageView ivPhoto;
 
     /*
-        private String address;
-    private RestCat category;
+        private String sets;
+    private WorkoutCat category;
     private String photo;
-    private String phone;
     * */
 
     @Override
@@ -27,29 +26,13 @@ public class WorkoutDetailsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_workout_details);
 
-        ImageView leftIcon = findViewById(R.id.left_icon);
-        ImageView rightIcon = findViewById(R.id.right_icon);
-
-        leftIcon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(WorkoutDetailsActivity.this,"You Clicked On Left Icon" ,Toast.LENGTH_SHORT).show();
-            }
-        });
-        rightIcon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(WorkoutDetailsActivity.this,"You Clicked On Right Icon" ,Toast.LENGTH_SHORT).show();
-            }
-        });
-
         connectComponents();
         Intent i = this.getIntent();
-        HomeWorkout workout = (HomeWorkout) i.getSerializableExtra("workout");
+        HomeWorkout workout = (HomeWorkout) i.getSerializableExtra("rest");
 
         tvName.setText(workout.getName());
-        tvDifficulty.setText(workout.getDifficulty());
         tvSets.setText(workout.getSets());
+        tvDifficulty.setText(workout.getDifficulty());
         tvCategory.setText(workout.getCategory().toString());
         Picasso.get().load(workout.getPhoto()).into(ivPhoto);
     }

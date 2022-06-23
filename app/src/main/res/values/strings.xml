@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">HomeWorkout</string>
+    <string name="err_fields_empty">Incorrect email or password!</string>
+    <string
+        name="err_incorrect_user_password">Incorrect username or password!</string>
+    <string
+        name="err_firebase_general">Genera Error firebase!</string>
 </resources>

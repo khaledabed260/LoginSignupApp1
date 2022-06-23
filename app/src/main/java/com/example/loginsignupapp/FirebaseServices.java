@@ -21,7 +21,8 @@ public class FirebaseServices {
             return storage;
         }
 
-        public FirebaseServices() {
+        public FirebaseServices()
+        {
             auth = FirebaseAuth.getInstance();
             fire = FirebaseFirestore.getInstance();
             storage = FirebaseStorage.getInstance();

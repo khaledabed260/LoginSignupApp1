@@ -7,13 +7,13 @@ public class HomeWorkout implements Serializable {
     private String sets;
     private String name;
     private String difficulty;
-    private String photo;
     private HWCat category;
+    private String photo;
 
     public HomeWorkout() {
     }
 
-    public HomeWorkout(String sets, String name, String difficulty, String photo, HWCat category) {
+    public HomeWorkout(String sets, String name, String difficulty, HWCat category,String photo) {
         this.sets = sets;
         this.name = name;
         this.difficulty = difficulty;
