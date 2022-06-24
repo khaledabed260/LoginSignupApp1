@@ -8,14 +8,15 @@
 
     <ImageView
         android:id="@+id/ivPhotoWorkoutRow"
-        android:layout_width="89dp"
-        android:layout_height="wrap_content"
+        android:layout_width="210dp"
+        android:layout_height="129dp"
         android:layout_weight="1"
-        tools:srcCompat="@tools:sample/avatars" />
+        android:background="@color/darkGray"
+        tools:srcCompat="@android:drawable/ic_menu_gallery" />
 
     <TextView
         android:id="@+id/tvNameWorkoutRow"
-        android:layout_width="107dp"
+        android:layout_width="185dp"
         android:layout_height="129dp"
         android:layout_weight="1"
         android:background="@color/yellow"

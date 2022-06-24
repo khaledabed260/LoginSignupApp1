@@ -17,8 +17,9 @@ public class HomeWorkout implements Serializable {
         this.sets = sets;
         this.name = name;
         this.difficulty = difficulty;
-        this.photo = photo;
         this.category = category;
+        this.photo = photo;
+
     }
 
     public String getSets() {
@@ -45,19 +46,19 @@ public class HomeWorkout implements Serializable {
         this.difficulty = difficulty;
     }
 
+    public HWCat getCategory() {
+        return category;
+    }
+
+    public void setCategory(HWCat category) {this.category = category;}
+
     public String getPhoto() { return photo;}
 
     public void setPhoto(String photo) {
         this.photo = photo;
     }
 
-    public HWCat getCategory() {
-        return category;
-    }
 
-    public void setCategory(HWCat category) {
-        this.category = category;
-    }
 
     @Override
     public String toString() {
@@ -65,8 +66,8 @@ public class HomeWorkout implements Serializable {
                 "sets='" + sets + '\'' +
                 ", name='" + name + '\'' +
                 ", difficulty='" + difficulty + '\'' +
-                ", photo='" + photo + '\'' +
                 ", category=" + category +
+                ", photo='" + photo + '\'' +
                 '}';
     }
 }

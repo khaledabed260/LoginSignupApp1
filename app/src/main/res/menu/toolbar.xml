@@ -5,12 +5,11 @@
     <item
         android:id="@+id/miProfile"
         app:showAsAction="never"
-        android:title="Profile">
+        android:title="">
 
     </item>
     <item
         android:id="@+id/miSettings"
-        android:iconTint="@color/yellow"
         app:showAsAction="never"
         android:title="Settings">
     </item>

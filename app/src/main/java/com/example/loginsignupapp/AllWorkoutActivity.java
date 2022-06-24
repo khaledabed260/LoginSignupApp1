@@ -43,7 +43,7 @@ public class AllWorkoutActivity extends AppCompatActivity {
         readData();
         myCallback = new MyCallback() {
             @Override
-            public void onCallback(List<HomeWorkout> restsList) {
+            public void onCallback(List<HomeWorkout> workoutsList) {
                 RecyclerView recyclerView = findViewById(R.id.rvWorkoutAllWorkout);
                 recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
                 adapter = new AdapterWorkout(getApplicationContext(), workouts);
@@ -53,7 +53,7 @@ public class AllWorkoutActivity extends AppCompatActivity {
 
         ActionBar actionBar = getSupportActionBar();
 
-        actionBar.setTitle("  WorkoutApp");
+        actionBar.setTitle("  Home Workout");
         actionBar.setDisplayUseLogoEnabled(true);
         actionBar.setDisplayShowHomeEnabled(true);
     }
@@ -92,7 +92,7 @@ public class AllWorkoutActivity extends AppCompatActivity {
     private void readData() {
         try {
 
-            fbs.getFire().collection("restaurants")
+            fbs.getFire().collection("workouts")
                     .get()
                     .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                         @Override
