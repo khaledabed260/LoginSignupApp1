@@ -9,17 +9,15 @@
 
     <Button
         android:id="@+id/btnLoginMain"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
         android:layout_marginStart="55dp"
         android:layout_marginTop="365dp"
         android:layout_marginEnd="55dp"
-        android:layout_marginBottom="225dp"
         android:backgroundTint="@color/yellow"
         android:onClick="login"
         android:text="Log In"
         android:textColor="@color/darkGray"
-        app:layout_constraintBottom_toTopOf="@+id/btnAddWorkout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -59,8 +57,8 @@
 
     <Button
         android:id="@+id/btnAllWorkoutMain"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="180dp"
+        android:layout_height="50dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="39dp"
         android:layout_marginBottom="43dp"
@@ -70,13 +68,12 @@
         android:textColor="@color/darkGray"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btnAddWorkout"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnSignUp" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/btnAddWorkout"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="180dp"
+        android:layout_height="50dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="43dp"
         android:backgroundTint="@color/yellow"
@@ -85,13 +82,12 @@
         android:textColor="@color/darkGray"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btnAllWorkoutMain"
-        app:layout_constraintTop_toBottomOf="@+id/btnLoginMain" />
+        app:layout_constraintStart_toEndOf="@+id/btnAllWorkoutMain" />
 
     <Button
         android:id="@+id/btnSignUp"
-        android:layout_width="202dp"
-        android:layout_height="0dp"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
         android:layout_marginTop="30dp"
         android:layout_marginBottom="144dp"
         android:backgroundTint="@color/yellow"

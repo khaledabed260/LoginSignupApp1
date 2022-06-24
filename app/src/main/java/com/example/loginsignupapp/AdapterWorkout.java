@@ -83,7 +83,7 @@ public class AdapterWorkout extends RecyclerView.Adapter<AdapterWorkout.ViewHold
         return mData.size();
     }
 
-    // stores and recycles views as they are scrol    led off screen
+    // stores and recycles views as they are scroll    led off screen
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView tvName;
         ImageView ivPhoto;

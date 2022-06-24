@@ -10,6 +10,7 @@
     </item>
     <item
         android:id="@+id/miSettings"
+        android:iconTint="@color/yellow"
         app:showAsAction="never"
         android:title="Settings">
     </item>
